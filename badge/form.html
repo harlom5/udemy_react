@@ -1,0 +1,48 @@
+<head>
+    <script src="https://fb.me/react-0.14.3.js"></script>
+    <script src="https://fb.me/react-dom-0.14.3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+    button {
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 target"></div>
+        </div>
+    </div>
+</body>
+
+<script type="text/jsx">
+    var Badge = React.createClass({
+        render: function() {
+            return <button>
+                {this.props.title} - {this.props.number}
+                </button>
+        }
+    });
+
+    var Form = React.createClass({
+        render: function() {
+            return <div>
+                Cash me outside
+                <Badge title={this.props.title} number={this.props.number} />
+                </div>
+        }
+    });
+
+    var options = {
+        title: 'Message',
+        number: 33
+    };
+
+    var FormElement = React.createElement(Form, options);
+
+    ReactDOM.render(FormElement, document.querySelector('.target'));
+
+</script>

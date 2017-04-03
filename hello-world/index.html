@@ -1,0 +1,24 @@
+<head>
+    <script src="https://fb.me/react-0.14.3.js"></script>
+    <script src="https://fb.me/react-dom-0.14.3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+</head>
+
+<body>
+
+</body>
+
+<script type="text/jsx">
+    var HelloWorld = React.createClass({
+        render: function() {
+            return <div>
+                Hello World
+            </div>
+        }
+    });
+
+    var element = React.createElement(HelloWorld);
+
+    ReactDOM.render(element, document.body);
+
+</script>
