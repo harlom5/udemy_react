@@ -1,0 +1,77 @@
+<head>
+    <script src="https://fb.me/react-0.14.3.js"></script>
+    <script src="https://fb.me/react-dom-0.14.3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+    button {
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    </div>
+
+</body>
+
+<script type="text/jsx">
+    var Badge = React.createClass({
+        render: function() {
+            return <button className="btn btn-primary" type="button">
+              {this.props.title} <span className="badge">{this.props.number}</span>
+            </button>
+        }
+    });
+
+    var Thumbnail = React.createClass({
+        render: function(){
+            return <div className="col-sm-6 col-md-4">
+                <div className="thumbnail">
+                    <img src={this.props.imageUrl} alt="..."/>
+                        <div className="caption">
+                            <h3>{this.props.header}</h3>
+                            <p>{this.props.description}</p>
+                            <p>
+                                <Badge title={this.props.title} number={this.props.number} />
+                            </p>
+                      </div>
+                </div>
+            </div>
+        }
+    });
+
+    var ThumbnailList = React.createClass({
+        render: function() {
+            var list = this.props.thumbnailData.map(function(thumbnailProps){
+                return <Thumbnail {...thumbnailProps}/>
+            });
+
+            return <div>
+                    {list}
+                </div>
+        }
+    });
+
+    options = {
+        thumbnailData: [{
+            title: 'Messages',
+            number: 19,
+            header: 'Learn React',
+            description: 'Image learned tutorial',
+            imageUrl: 'http://fillmurray.com/200/300'
+        },{
+            title: 'Messages',
+            number: 26,
+            header: 'Learn React #2',
+            description: 'Image learned tutorial #2',
+            imageUrl: 'http://fillmurray.com/200/305'
+        }]
+    };
+
+    var element = React.createElement(ThumbnailList, options);
+
+    ReactDOM.render(element, document.querySelector('.container'));
+
+</script>
