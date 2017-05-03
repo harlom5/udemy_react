@@ -36,10 +36,10 @@ var Child3 = React.createClass({
 
 var routes = (
     <Router>
-        <Route path='/' component={Hello}>
-            <Route path='1' component={Child1} />
-            <Route path='2' component={Child2}>
-                <Route path='3' component={Child3} />
+        <Route path='/' component={Hello}> //url/
+            <Route path='1' component={Child1} /> // url/1
+            <Route path='2' component={Child2}> // url/2
+                <Route path='3' component={Child3} /> // url/2/3
             </Route>
         </Route>
     </Router>
